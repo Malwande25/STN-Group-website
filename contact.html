@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – STN Group</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── CONTACT PAGE ── */
+    .contact-body {
+      background: var(--deep);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 0;
+      min-height: 700px;
+    }
+
+    /* form side */
+    .contact-form-side { padding: 6rem 4rem; border-right: 1px solid var(--border); }
+    .contact-form { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.4rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--forest);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.85rem 1rem;
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      transition: border-color 0.25s;
+      outline: none;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group select { cursor: pointer; }
+    .form-group select option { background: var(--forest); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-submit {
+      background: var(--gold);
+      color: var(--deep);
+      border: none;
+      padding: 1rem 2.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+    /* info side */
+    .contact-info-side { padding: 6rem 4rem; background: var(--forest); }
+    .info-block { margin-bottom: 3rem; }
+    .info-block:last-child { margin-bottom: 0; }
+    .info-block__label { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+    .info-block__value { font-size: 1rem; color: var(--cream); line-height: 1.7; }
+    .info-block__value a { color: var(--cream); transition: color 0.25s; }
+    .info-block__value a:hover { color: var(--gold); }
+
+    /* divider in info */
+    .info-divider { width: 100%; height: 1px; background: var(--border); margin: 2.5rem 0; }
+
+    /* partnership box */
+    .invest-block {
+      background: var(--moss);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .invest-block__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.75rem;
+    }
+    .invest-block__body { font-size: 0.82rem; color: var(--gray-lt); line-height: 1.75; }
+
+    /* contact cards row */
+    .contact-cards {
+      background: var(--forest);
+      display: grid; grid-template-columns: repeat(3,1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-card-item {
+      padding: 3.5rem 2.5rem;
+      border-right: 1px solid var(--border);
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .contact-card-item:last-child { border-right: none; }
+    .contact-card-item:hover { background: var(--moss); }
+    .contact-card-item__icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .contact-card-item__label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+    .contact-card-item__value { font-size: 0.9rem; color: var(--cream); line-height: 1.7; }
+    .contact-card-item__value a { color: var(--cream); transition: color 0.25s; }
+    .contact-card-item__value a:hover { color: var(--gold); }
+
+    @media (max-width:900px) {
+      .contact-body { grid-template-columns: 1fr; }
+      .contact-form-side { padding: 4rem 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .contact-info-side { padding: 4rem 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-cards { grid-template-columns: 1fr; }
+      .contact-card-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .contact-card-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__brand">
+    <img src="images/logo.png" alt="STN Group" class="nav__logo-img" onerror="this.style.display='none'">
+    <div class="nav__wordmark">STN <span>GROUP</span></div>
+  </div>
+  <ul class="nav__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="charcoal.html">Charcoal</a></li>
+    <li><a href="agriculture.html">Agriculture</a></li>
+    <li><a href="contact.html" class="nav__cta active">Contact</a></li>
+  </ul>
+  <div class="nav__burger"><span></span><span></span><span></span></div>
+</nav>
+<ul class="nav__mobile">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="industries.html">Industries</a></li>
+  <li><a href="charcoal.html">Charcoal</a></li>
+  <li><a href="agriculture.html">Agriculture</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <!-- images/contact-hero.jpg — 1920×900px, team / community photo -->
+  <img src="images/contact-hero.jpg" alt="" class="page-hero__bg" onerror="this.style.display='none'">
+  <div class="page-hero__content">
+    <span class="page-hero__tag">Get in Touch</span>
+    <h1 class="page-hero__title">Partner With<br><em>STN Group</em></h1>
+    <p class="page-hero__lead">We look forward to partnering with businesses, government departments, investors, and communities to deliver impactful, sustainable solutions.</p>
+  </div>
+</div>
+
+<!-- CONTACT CARDS -->
+<div class="contact-cards">
+  <div class="contact-card-item reveal">
+    <span class="contact-card-item__icon">🌐</span>
+    <span class="contact-card-item__label">Website</span>
+    <div class="contact-card-item__value"><a href="http://www.stncommgroup.com" target="_blank">www.stncommgroup.com</a></div>
+  </div>
+  <div class="contact-card-item reveal">
+    <span class="contact-card-item__icon">✉️</span>
+    <span class="contact-card-item__label">Email</span>
+    <div class="contact-card-item__value"><a href="mailto:info@stncommgroup.com">info@stncommgroup.com</a></div>
+  </div>
+  <div class="contact-card-item reveal">
+    <span class="contact-card-item__icon">📞</span>
+    <span class="contact-card-item__label">Phone</span>
+    <div class="contact-card-item__value">
+      <a href="tel:+27738067458">073 806 7458</a><br>
+      <a href="tel:+27843595454">084 359 5454</a>
+    </div>
+  </div>
+</div>
+
+<!-- FORM + INFO -->
+<div class="contact-body">
+  <div class="contact-form-side reveal">
+    <span class="section__tag">Send a Message</span>
+    <h2 class="section__title">How Can We Help?</h2>
+    <p class="section__body" style="margin-top:0.75rem;">Fill in the form and a member of our team will get back to you within one business day.</p>
+
+    <form class="contact-form" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" placeholder="Your first name" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" placeholder="Your last name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+27 XX XXX XXXX">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="subject">Area of Interest</label>
+        <select id="subject" name="subject" required>
+          <option value="" disabled selected>Select a division or topic…</option>
+          <option value="charcoal">Charcoal — Bulk Orders / Supply</option>
+          <option value="agriculture">Agriculture — Produce Supply</option>
+          <option value="mechanization">Agriculture — Mechanization Services</option>
+          <option value="cartage">Cartage &amp; Hardware</option>
+          <option value="water">Water Solutions</option>
+          <option value="construction">Construction</option>
+          <option value="technology">Technology &amp; Security</option>
+          <option value="investment">Strategic Investment / Partnership</option>
+          <option value="general">General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="organisation">Organisation / Company</label>
+        <input type="text" id="organisation" name="organisation" placeholder="Company or organisation name">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your enquiry, project, or requirements…" required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message →</button>
+    </form>
+  </div>
+
+  <div class="contact-info-side reveal">
+    <span class="section__tag">Our Details</span>
+    <h2 class="section__title" style="font-size:clamp(1.5rem,2.5vw,2.2rem);">Direct Contact</h2>
+    <div class="info-divider"></div>
+
+    <div class="info-block">
+      <span class="info-block__label">Location</span>
+      <div class="info-block__value">Upper Mjika, Kambi – Tsolo<br>Eastern Cape, South Africa</div>
+    </div>
+
+    <div class="info-block">
+      <span class="info-block__label">Email</span>
+      <div class="info-block__value"><a href="mailto:info@stncommgroup.com">info@stncommgroup.com</a></div>
+    </div>
+
+    <div class="info-block">
+      <span class="info-block__label">Phone</span>
+      <div class="info-block__value">
+        <a href="tel:+27738067458">073 806 7458</a><br>
+        <a href="tel:+27843595454">084 359 5454</a>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <span class="info-block__label">Website</span>
+      <div class="info-block__value"><a href="http://www.stncommgroup.com" target="_blank">www.stncommgroup.com</a></div>
+    </div>
+
+    <div class="info-divider"></div>
+
+    <div class="invest-block">
+      <div class="invest-block__title">Strategic Financial Support</div>
+      <p class="invest-block__body">STN is seeking strategic financial partnerships to expand our agricultural and mechanization operations. Funding will be directed toward machinery, farm fencing, logistics vehicles, storage infrastructure, and operational tools — directly contributing to economic development and rural empowerment in the Eastern Cape. If you are an investor or development funder, we welcome your enquiry.</p>
+    </div>
+
+    <div class="info-divider"></div>
+
+    <div>
+      <span class="info-block__label">Divisions</span>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
+        <a href="charcoal.html" class="chip" style="text-decoration:none; transition:border-color 0.25s;">Charcoal</a>
+        <a href="agriculture.html" class="chip" style="text-decoration:none; transition:border-color 0.25s;">Agriculture</a>
+        <a href="industries.html" class="chip" style="text-decoration:none; transition:border-color 0.25s;">Cartage</a>
+        <a href="industries.html" class="chip" style="text-decoration:none; transition:border-color 0.25s;">Construction</a>
+        <a href="industries.html" class="chip" style="text-decoration:none; transition:border-color 0.25s;">Water</a>
+        <a href="industries.html" class="chip" style="text-decoration:none; transition:border-color 0.25s;">Technology</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <img src="images/logo-white.png" alt="STN Group" class="footer__logo-img" onerror="this.style.display='none'">
+      <div class="footer__wordmark">STN GROUP</div>
+      <p class="footer__tagline">A multidisciplinary South African organisation rooted in excellence, innovation, and community development.</p>
+    </div>
+    <div>
+      <div class="footer__heading">Pages</div>
+      <ul class="footer__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="charcoal.html">Charcoal</a></li>
+        <li><a href="agriculture.html">Agriculture</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Industries</div>
+      <ul class="footer__links">
+        <li><a href="charcoal.html">Forestry &amp; Charcoal</a></li>
+        <li><a href="agriculture.html">Agriculture</a></li>
+        <li><a href="industries.html">Cartage &amp; Hardware</a></li>
+        <li><a href="industries.html">Water Solutions</a></li>
+        <li><a href="industries.html">Construction</a></li>
+        <li><a href="industries.html">Technology &amp; Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Contact</div>
+      <p class="footer__contact-line"><a href="http://www.stncommgroup.com" target="_blank">www.stncommgroup.com</a></p>
+      <p class="footer__contact-line"><a href="mailto:info@stncommgroup.com">info@stncommgroup.com</a></p>
+      <p class="footer__contact-line"><a href="tel:+27738067458">073 806 7458</a></p>
+      <p class="footer__contact-line"><a href="tel:+27843595454">084 359 5454</a></p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="footer__copy">© 2025 STN Communications CC. All rights reserved.</span>
+    <span class="footer__location">Upper Mjika, Kambi – Tsolo · Eastern Cape · South Africa</span>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charcoal – STN Group</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── CHARCOAL PAGE ── */
+    .coal-intro {
+      background: var(--deep);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+    .coal-intro__text { padding: 7rem 4rem; }
+    .coal-intro__gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      min-height: 560px;
+    }
+    .coal-intro__gallery-item { position:relative; overflow:hidden; background:var(--moss); }
+    .coal-intro__gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+    .coal-intro__gallery-item:hover img { transform:scale(1.06); }
+
+    /* advantages */
+    .coal-adv {
+      background: var(--forest);
+      display: grid; grid-template-columns: repeat(4,1fr);
+      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    }
+    .coal-adv__item {
+      padding: 3rem 2rem;
+      border-right: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .coal-adv__item:last-child { border-right:none; }
+    .coal-adv__item:hover { background:var(--moss); }
+    .coal-adv__icon { font-size:1.8rem; margin-bottom:1rem; }
+    .coal-adv__title { font-weight:500; color:var(--gold); margin-bottom:0.5rem; font-size:0.9rem; }
+    .coal-adv__body { font-size:0.8rem; color:var(--gray-lt); line-height:1.65; }
+
+    /* markets */
+    .coal-markets {
+      background: var(--deep); padding:6rem 4rem;
+      display: grid; grid-template-columns:1.1fr 1fr; gap:6rem; align-items:center;
+    }
+    .markets-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem;
+    }
+    .market-card {
+      background:var(--forest);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:2rem;
+      transition:border-color 0.3s, transform 0.3s;
+    }
+    .market-card:hover { border-color:var(--border-hover); transform:translateY(-3px); }
+    .market-card__icon { font-size:1.6rem; margin-bottom:0.75rem; }
+    .market-card__title { font-weight:500; color:var(--white); margin-bottom:0.5rem; font-size:0.9rem; }
+    .market-card__desc { font-size:0.8rem; color:var(--gray); line-height:1.6; }
+
+    /* scope */
+    .coal-scope {
+      background:var(--forest); padding:6rem 4rem;
+    }
+    .scope-list {
+      margin-top:3rem;
+      display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px;
+      background:var(--border); border:1px solid var(--border);
+    }
+    .scope-item {
+      background:var(--forest); padding:2.5rem;
+      display:flex; align-items:flex-start; gap:1rem;
+      transition:background 0.3s;
+    }
+    .scope-item:hover { background:var(--moss); }
+    .scope-item__check {
+      width:28px; height:28px; border-radius:50%;
+      background:var(--gold-dim); border:1px solid var(--border-hover);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold); font-size:0.75rem; flex-shrink:0; margin-top:0.1rem;
+    }
+    .scope-item__title { font-weight:500; color:var(--white); margin-bottom:0.4rem; font-size:0.9rem; }
+    .scope-item__body { font-size:0.8rem; color:var(--gray-lt); line-height:1.6; }
+
+    /* gallery */
+    .coal-gallery { background:var(--deep); padding:6rem 4rem; }
+    .gallery-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:4px; margin-top:3rem;
+    }
+    .gallery-grid__item {
+      position:relative; overflow:hidden;
+      aspect-ratio:4/3; background:var(--moss); cursor:zoom-in;
+    }
+    .gallery-grid__item img {
+      width:100%; height:100%; object-fit:cover;
+      transition:transform 0.5s; display:block;
+    }
+    .gallery-grid__item:hover img { transform:scale(1.07); }
+    .gallery-grid__item.gallery__img { /* trigger lightbox */ }
+
+    @media (max-width:900px) {
+      .coal-intro { grid-template-columns:1fr; }
+      .coal-intro__text { padding:4rem 1.5rem; }
+      .coal-intro__gallery { min-height:280px; }
+      .coal-adv { grid-template-columns:1fr 1fr; }
+      .coal-adv__item:nth-child(2) { border-right:none; }
+      .coal-adv__item:nth-child(n+3) { border-top:1px solid var(--border); }
+      .coal-markets { grid-template-columns:1fr; padding:4rem 1.5rem; gap:3rem; }
+      .coal-scope { padding:4rem 1.5rem; }
+      .scope-list { grid-template-columns:1fr; }
+      .coal-gallery { padding:4rem 1.5rem; }
+      .gallery-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:480px) {
+      .coal-intro__gallery { grid-template-columns:1fr; }
+      .coal-adv { grid-template-columns:1fr; }
+      .coal-adv__item { border-right:none !important; border-bottom:1px solid var(--border); }
+      .gallery-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__brand">
+    <img src="images/logo.png" alt="STN Group" class="nav__logo-img" onerror="this.style.display='none'">
+    <div class="nav__wordmark">STN <span>GROUP</span></div>
+  </div>
+  <ul class="nav__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="charcoal.html" class="active">Charcoal</a></li>
+    <li><a href="agriculture.html">Agriculture</a></li>
+    <li><a href="contact.html" class="nav__cta">Contact</a></li>
+  </ul>
+  <div class="nav__burger"><span></span><span></span><span></span></div>
+</nav>
+<ul class="nav__mobile">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="industries.html">Industries</a></li>
+  <li><a href="charcoal.html">Charcoal</a></li>
+  <li><a href="agriculture.html">Agriculture</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <!-- images/charcoal-hero.jpg — 1920×900px, burning kiln / charcoal bags -->
+  <img src="images/charcoal-hero.jpg" alt="" class="page-hero__bg" onerror="this.style.display='none'">
+  <div class="page-hero__content">
+    <span class="page-hero__tag">STN Charcoal Division</span>
+    <h1 class="page-hero__title">Black Wattle<br><em>Charcoal</em></h1>
+    <p class="page-hero__lead">Premium-quality charcoal manufactured from sustainably sourced Black Wattle in the Eastern Cape — hotter, cleaner, and longer burning.</p>
+  </div>
+</div>
+
+<!-- INTRO + GALLERY -->
+<div class="coal-intro">
+  <div class="coal-intro__text">
+    <span class="section__tag reveal">About the Division</span>
+    <h2 class="section__title reveal">Eastern Cape's Trusted Charcoal Supplier</h2>
+    <div class="divider"></div>
+    <p class="section__body reveal" style="margin-bottom:1.5rem;">STN Black Wattle Charcoal is a trusted supplier of premium-quality charcoal produced in the Eastern Cape. Our product is natural, sustainable, and suitable for retail &amp; wholesale markets, restaurants &amp; hospitality, and industrial energy applications.</p>
+    <p class="section__body reveal" style="margin-bottom:2rem;">As a proudly local Eastern Cape brand, we combine responsible harvesting practices with quality-tested manufacturing to deliver a product that performs and a business model that benefits our communities.</p>
+    <div class="reveal" style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn--gold">Enquire About Bulk Orders</a>
+      <a href="contact.html" class="btn btn--outline">Get a Quote</a>
+    </div>
+  </div>
+  <div class="coal-intro__gallery">
+    <!-- charcoal-1.jpg through charcoal-4.jpg — 600×380px each -->
+    <div class="coal-intro__gallery-item">
+      <img src="images/charcoal-1.jpg" alt="STN Charcoal Product" class="gallery__img" onerror="this.style.display='none'">
+      <div class="img-placeholder"><strong>images/charcoal-1.jpg</strong>Product bags · 600×380px</div>
+    </div>
+    <div class="coal-intro__gallery-item">
+      <img src="images/charcoal-2.jpg" alt="Charcoal Production" class="gallery__img" onerror="this.style.display='none'">
+      <div class="img-placeholder"><strong>images/charcoal-2.jpg</strong>Production kiln · 600×380px</div>
+    </div>
+    <div class="coal-intro__gallery-item">
+      <img src="images/charcoal-3.jpg" alt="STN Worker" class="gallery__img" onerror="this.style.display='none'">
+      <div class="img-placeholder"><strong>images/charcoal-3.jpg</strong>Worker / staff · 600×380px</div>
+    </div>
+    <div class="coal-intro__gallery-item">
+      <img src="images/charcoal-4.jpg" alt="Wood Sourcing" class="gallery__img" onerror="this.style.display='none'">
+      <div class="img-placeholder"><strong>images/charcoal-4.jpg</strong>Raw wood / forest · 600×380px</div>
+    </div>
+  </div>
+</div>
+
+<!-- ADVANTAGES -->
+<div class="coal-adv">
+  <div class="coal-adv__item reveal"><div class="coal-adv__icon">🔥</div><div class="coal-adv__title">100% Pure Black Wattle</div><p class="coal-adv__body">No additives, no fillers — just pure Black Wattle for a premium burn every time.</p></div>
+  <div class="coal-adv__item reveal"><div class="coal-adv__icon">⬆️</div><div class="coal-adv__title">Hotter &amp; Longer Burn</div><p class="coal-adv__body">Higher calorific value than standard charcoal — reaches heat faster and holds it longer.</p></div>
+  <div class="coal-adv__item reveal"><div class="coal-adv__icon">💧</div><div class="coal-adv__title">Low Moisture &amp; Low Ash</div><p class="coal-adv__body">Less smoke, less mess — a cleaner experience for both hospitality and home use.</p></div>
+  <div class="coal-adv__item reveal"><div class="coal-adv__icon">🌿</div><div class="coal-adv__title">Environmentally Responsible</div><p class="coal-adv__body">Sustainably harvested from Eastern Cape forests with responsible replanting practices.</p></div>
+</div>
+
+<!-- MARKETS -->
+<div class="coal-markets">
+  <div class="reveal">
+    <span class="section__tag">Who We Supply</span>
+    <h2 class="section__title">Markets &amp; Applications</h2>
+    <div class="divider"></div>
+    <p class="section__body">Our charcoal is suitable for a wide range of applications — from backyard braai to large-scale industrial energy. We supply retail packs for consumer markets and bulk loads for commercial and industrial clients.</p>
+    <div class="markets-grid">
+      <div class="market-card"><div class="market-card__icon">🏪</div><div class="market-card__title">Retail &amp; Wholesale</div><p class="market-card__desc">Retail-ready packaging for supermarkets, hardware stores, and wholesalers.</p></div>
+      <div class="market-card"><div class="market-card__icon">🍽️</div><div class="market-card__title">Restaurants &amp; Hospitality</div><p class="market-card__desc">Consistent, high-heat charcoal for braai restaurants and catering operations.</p></div>
+      <div class="market-card"><div class="market-card__icon">🏭</div><div class="market-card__title">Industrial Energy</div><p class="market-card__desc">Bulk charcoal as a carbon source and fuel for industrial energy applications.</p></div>
+      <div class="market-card"><div class="market-card__icon">🏠</div><div class="market-card__title">Home &amp; Leisure</div><p class="market-card__desc">Perfect for family braais — long-lasting heat with less ash and less smoke.</p></div>
+    </div>
+  </div>
+  <div class="reveal" style="position:relative; min-height:400px; background:var(--moss); border-radius:var(--radius); overflow:hidden;">
+    <!-- images/charcoal-market.jpg — product in use / retail display, 600×500px -->
+    <img src="images/charcoal-market.jpg" alt="Charcoal Market" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" onerror="this.style.display='none'">
+    <div class="img-placeholder"><strong>images/charcoal-market.jpg</strong>Product / market scene · 600×500px</div>
+  </div>
+</div>
+
+<!-- OUR SCOPE -->
+<div class="coal-scope">
+  <div style="text-align:center; max-width:520px; margin:0 auto;">
+    <span class="section__tag reveal">What We Offer</span>
+    <h2 class="section__title reveal">Our Full Scope of Service</h2>
+  </div>
+  <div class="scope-list">
+    <div class="scope-item reveal"><div class="scope-item__check">✓</div><div><div class="scope-item__title">Charcoal Production &amp; Packaging</div><p class="scope-item__body">From kiln to bag — end-to-end production with branded retail and bulk packaging options.</p></div></div>
+    <div class="scope-item reveal"><div class="scope-item__check">✓</div><div><div class="scope-item__title">Bulk Supply &amp; Distribution</div><p class="scope-item__body">Scalable bulk orders for wholesalers, retailers, and industrial buyers with reliable delivery.</p></div></div>
+    <div class="scope-item reveal"><div class="scope-item__check">✓</div><div><div class="scope-item__title">Quality Testing</div><p class="scope-item__body">Every batch tested for Moisture, Ash Content, Fixed Carbon, and Calorific Value.</p></div></div>
+    <div class="scope-item reveal"><div class="scope-item__check">✓</div><div><div class="scope-item__title">Sustainable Wood Sourcing</div><p class="scope-item__body">Black Wattle sourced from responsibly managed Eastern Cape forests.</p></div></div>
+    <div class="scope-item reveal"><div class="scope-item__check">✓</div><div><div class="scope-item__title">SABS Certification Support</div><p class="scope-item__body">Actively progressing through the SABS certification process for national standard compliance.</p></div></div>
+    <div class="scope-item reveal"><div class="scope-item__check">✓</div><div><div class="scope-item__title">Community Employment</div><p class="scope-item__body">The charcoal division creates long-term rural employment in the Tsolo and surrounding areas.</p></div></div>
+  </div>
+</div>
+
+<!-- PHOTO GALLERY -->
+<div class="coal-gallery">
+  <div style="text-align:center; max-width:520px; margin:0 auto;">
+    <span class="section__tag reveal">Production Gallery</span>
+    <h2 class="section__title reveal">From Forest to Finished Product</h2>
+  </div>
+  <div class="gallery-grid">
+    <!-- charcoal-g-1.jpg through charcoal-g-6.jpg — 800×600px each -->
+    <div class="gallery-grid__item"><img src="images/charcoal-g-1.jpg" alt="" class="gallery__img" onerror="this.style.display='none'"><div class="img-placeholder"><strong>images/charcoal-g-1.jpg</strong>600×450px</div></div>
+    <div class="gallery-grid__item"><img src="images/charcoal-g-2.jpg" alt="" class="gallery__img" onerror="this.style.display='none'"><div class="img-placeholder"><strong>images/charcoal-g-2.jpg</strong>600×450px</div></div>
+    <div class="gallery-grid__item"><img src="images/charcoal-g-3.jpg" alt="" class="gallery__img" onerror="this.style.display='none'"><div class="img-placeholder"><strong>images/charcoal-g-3.jpg</strong>600×450px</div></div>
+    <div class="gallery-grid__item"><img src="images/charcoal-g-4.jpg" alt="" class="gallery__img" onerror="this.style.display='none'"><div class="img-placeholder"><strong>images/charcoal-g-4.jpg</strong>600×450px</div></div>
+    <div class="gallery-grid__item"><img src="images/charcoal-g-5.jpg" alt="" class="gallery__img" onerror="this.style.display='none'"><div class="img-placeholder"><strong>images/charcoal-g-5.jpg</strong>600×450px</div></div>
+    <div class="gallery-grid__item"><img src="images/charcoal-g-6.jpg" alt="" class="gallery__img" onerror="this.style.display='none'"><div class="img-placeholder"><strong>images/charcoal-g-6.jpg</strong>600×450px</div></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div style="background:var(--gold); padding:4rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;">
+  <div style="font-family:'Playfair Display',serif; font-size:clamp(1.4rem,2.5vw,2rem); font-weight:700; color:var(--deep); max-width:480px; line-height:1.25;">Interested in bulk charcoal orders? Contact us for pricing and availability.</div>
+  <a href="contact.html" class="btn btn--dark">Get in Touch</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <img src="images/logo-white.png" alt="STN Group" class="footer__logo-img" onerror="this.style.display='none'">
+      <div class="footer__wordmark">STN GROUP</div>
+      <p class="footer__tagline">A multidisciplinary South African organisation rooted in excellence, innovation, and community development.</p>
+    </div>
+    <div>
+      <div class="footer__heading">Pages</div>
+      <ul class="footer__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="charcoal.html">Charcoal</a></li>
+        <li><a href="agriculture.html">Agriculture</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Charcoal</div>
+      <ul class="footer__links">
+        <li><a href="charcoal.html">About the Division</a></li>
+        <li><a href="charcoal.html#markets">Markets</a></li>
+        <li><a href="charcoal.html#scope">Our Scope</a></li>
+        <li><a href="contact.html">Bulk Orders</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Contact</div>
+      <p class="footer__contact-line"><a href="mailto:info@stncommgroup.com">info@stncommgroup.com</a></p>
+      <p class="footer__contact-line"><a href="tel:+27738067458">073 806 7458</a></p>
+      <p class="footer__contact-line"><a href="tel:+27843595454">084 359 5454</a></p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="footer__copy">© 2025 STN Communications CC. All rights reserved.</span>
+    <span class="footer__location">Eastern Cape · South Africa</span>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

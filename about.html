@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – STN Group</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── ABOUT-ONLY STYLES ── */
+    .about-story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--deep);
+    }
+    .about-story__text { padding: 7rem 4rem; }
+    .about-story__visual {
+      position: relative;
+      min-height: 560px;
+      background: var(--forest);
+    }
+    .about-story__visual img {
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+    .about-story__visual::before {
+      content:''; position:absolute; inset:0; z-index:1;
+      background: linear-gradient(to right, var(--deep) 0%, transparent 40%);
+    }
+
+    /* VMV panels */
+    .vmv {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      background: var(--forest);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .vmv__panel {
+      padding: 4.5rem 3rem;
+      border-right: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .vmv__panel:last-child { border-right:none; }
+    .vmv__panel:hover { background: rgba(10,26,10,0.45); }
+    .vmv__label {
+      font-size:0.68rem; letter-spacing:0.25em;
+      text-transform:uppercase; color:var(--gold);
+      margin-bottom:1.2rem; display:block;
+    }
+    .vmv__title {
+      font-family:'Playfair Display',serif;
+      font-size:1.6rem; font-weight:700;
+      color:var(--white); margin-bottom:1.2rem; line-height:1.2;
+    }
+    .vmv__text { font-size:0.88rem; color:var(--gray-lt); line-height:1.85; }
+
+    /* Stats row */
+    .stats-row {
+      background: var(--deep);
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-row__item {
+      padding: 3.5rem 2.5rem;
+      border-right: 1px solid var(--border);
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .stats-row__item:last-child { border-right:none; }
+    .stats-row__item:hover { background: var(--forest); }
+    .stats-row__num {
+      font-family:'Playfair Display',serif;
+      font-size:3.2rem; font-weight:900;
+      color:var(--gold); display:block; line-height:1;
+      margin-bottom:0.5rem;
+    }
+    .stats-row__label { font-size:0.78rem; color:var(--gray); letter-spacing:0.1em; text-transform:uppercase; }
+
+    /* Values grid */
+    .values-section { background: var(--forest); padding:6rem 4rem; }
+    .values-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:1.5px; background:var(--border);
+      border:1px solid var(--border); margin-top:3.5rem;
+    }
+    .value-card {
+      background:var(--forest); padding:2.5rem;
+      transition:background 0.3s;
+    }
+    .value-card:hover { background:var(--moss); }
+    .value-card__icon { font-size:1.8rem; margin-bottom:1rem; display:block; }
+    .value-card__title {
+      font-family:'Playfair Display',serif;
+      font-size:1.1rem; font-weight:700;
+      color:var(--gold); margin-bottom:0.75rem;
+    }
+    .value-card__body { font-size:0.84rem; color:var(--gray-lt); line-height:1.75; }
+
+    /* Team / org */
+    .org-section {
+      background:var(--deep); padding:6rem 4rem;
+      display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;
+    }
+    .org-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem;
+    }
+    .org-pill {
+      background:var(--forest);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:1.2rem 1.4rem;
+      font-size:0.82rem; color:var(--cream);
+      text-align:center; letter-spacing:0.06em;
+      text-transform:uppercase; transition:border-color 0.3s, background 0.3s;
+    }
+    .org-pill:hover { border-color:var(--gold); background:var(--forest); }
+
+    /* photo grid */
+    .photo-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      grid-template-rows:1fr 1fr; gap:4px; min-height:440px;
+    }
+    .photo-grid__item { position:relative; overflow:hidden; background:var(--moss); }
+    .photo-grid__item img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+    .photo-grid__item:hover img { transform:scale(1.05); }
+    .photo-grid__item:first-child { grid-row:span 2; }
+
+    @media (max-width:900px) {
+      .about-story { grid-template-columns:1fr; }
+      .about-story__text { padding:4rem 1.5rem; }
+      .about-story__visual { min-height:260px; }
+      .vmv { grid-template-columns:1fr; }
+      .vmv__panel { border-right:none; border-bottom:1px solid var(--border); }
+      .stats-row { grid-template-columns:1fr 1fr; }
+      .stats-row__item:nth-child(2) { border-right:none; }
+      .stats-row__item:nth-child(n+3) { border-top:1px solid var(--border); }
+      .values-section { padding:4rem 1.5rem; }
+      .values-grid { grid-template-columns:1fr; }
+      .org-section { grid-template-columns:1fr; padding:4rem 1.5rem; gap:3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__brand">
+    <img src="images/logo.png" alt="STN Group" class="nav__logo-img" onerror="this.style.display='none'">
+    <div class="nav__wordmark">STN <span>GROUP</span></div>
+  </div>
+  <ul class="nav__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="charcoal.html">Charcoal</a></li>
+    <li><a href="agriculture.html">Agriculture</a></li>
+    <li><a href="contact.html" class="nav__cta">Contact</a></li>
+  </ul>
+  <div class="nav__burger"><span></span><span></span><span></span></div>
+</nav>
+<ul class="nav__mobile">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="industries.html">Industries</a></li>
+  <li><a href="charcoal.html">Charcoal</a></li>
+  <li><a href="agriculture.html">Agriculture</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <!-- images/about-hero.jpg — Eastern Cape landscape, 1920×900px -->
+  <img src="images/about-hero.jpg" alt="" class="page-hero__bg" onerror="this.style.display='none'">
+  <div class="page-hero__content">
+    <span class="page-hero__tag">Our Story</span>
+    <h1 class="page-hero__title">About <em>STN Group</em></h1>
+    <p class="page-hero__lead">A multidisciplinary South African company established in 2005, rooted in excellence, innovation, and community development across the Eastern Cape.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="about-story">
+  <div class="about-story__text">
+    <span class="section__tag reveal">Established 2005</span>
+    <h2 class="section__title reveal">Two Decades of Trusted Service</h2>
+    <div class="divider"></div>
+    <p class="section__body reveal" style="margin-bottom:1.5rem;">STN Group (STN Communications CC) was founded in 2005 with a clear purpose: to deliver innovative, reliable, and quality-driven solutions across multiple sectors in South Africa's Eastern Cape — and to do so in a way that uplifts and empowers the communities in which we operate.</p>
+    <p class="section__body reveal" style="margin-bottom:1.5rem;">Over the past two decades we have diversified from our communications roots into a truly multidisciplinary organisation spanning Agriculture, Forestry &amp; Charcoal Manufacturing, Mechanization, Water Solutions, Construction, Cartage, Technology, and Security.</p>
+    <p class="section__body reveal">Our integrated approach, backed by experienced management and community-focused operations, positions us as a trusted partner for public and private sector clients alike.</p>
+  </div>
+  <div class="about-story__visual">
+    <!-- images/about-story.jpg — farm / operations scene, 900×700px -->
+    <img src="images/about-story.jpg" alt="STN Group Operations" onerror="this.style.display='none'">
+    <div class="img-placeholder"><strong>images/about-story.jpg</strong>Farm / operations photo · 900×700px</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stats-row__item reveal"><span class="stats-row__num" data-target="20" data-suffix="+">20+</span><span class="stats-row__label">Years of operation</span></div>
+  <div class="stats-row__item reveal"><span class="stats-row__num" data-target="8" data-suffix="+">8+</span><span class="stats-row__label">Industry sectors</span></div>
+  <div class="stats-row__item reveal"><span class="stats-row__num" data-target="100" data-suffix="%">100%</span><span class="stats-row__label">South African owned</span></div>
+  <div class="stats-row__item reveal"><span class="stats-row__num">EC</span><span class="stats-row__label">Eastern Cape based</span></div>
+</div>
+
+<!-- VMV -->
+<div class="vmv">
+  <div class="vmv__panel reveal">
+    <span class="vmv__label">Vision</span>
+    <div class="vmv__title">Leading Multi-Industry Excellence</div>
+    <p class="vmv__text">To be a leading multi-industry service provider delivering excellence across all our specialised services locally, nationally, and internationally.</p>
+  </div>
+  <div class="vmv__panel reveal">
+    <span class="vmv__label">Mission</span>
+    <div class="vmv__title">Innovative &amp; Sustainable Solutions</div>
+    <p class="vmv__text">To provide innovative, sustainable, and client-focused solutions that uplift communities, support economic growth, and exceed customer expectations.</p>
+  </div>
+  <div class="vmv__panel reveal">
+    <span class="vmv__label">Approach</span>
+    <div class="vmv__title">Community-First Operations</div>
+    <p class="vmv__text">Every project we undertake is evaluated against its ability to create meaningful employment, develop skills, and deliver lasting value to the rural and urban communities we serve.</p>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="values-section">
+  <div style="text-align:center; max-width:520px; margin:0 auto;">
+    <span class="section__tag reveal">Core Values</span>
+    <h2 class="section__title reveal">What Drives Us Every Day</h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal"><span class="value-card__icon">🌱</span><div class="value-card__title">Community-Centric</div><p class="value-card__body">We are driven to exceed customer expectations while uplifting the communities in which we operate — rural development is central to everything we do.</p></div>
+    <div class="value-card reveal"><span class="value-card__icon">🤝</span><div class="value-card__title">Integrity &amp; Trust</div><p class="value-card__body">Ethical conduct in all we do. Our reputation as a reliable, transparent partner has been earned over two decades of consistent delivery.</p></div>
+    <div class="value-card reveal"><span class="value-card__icon">💡</span><div class="value-card__title">Innovation &amp; Creativity</div><p class="value-card__body">Embracing smart, modern solutions — from advanced agricultural mechanization to sustainable charcoal production techniques.</p></div>
+    <div class="value-card reveal"><span class="value-card__icon">⭐</span><div class="value-card__title">Excellence</div><p class="value-card__body">A commitment to high standards and continuous improvement. We never settle for good enough when great is achievable.</p></div>
+    <div class="value-card reveal"><span class="value-card__icon">👥</span><div class="value-card__title">Teamwork</div><p class="value-card__body">Strength through collaboration — internally across our divisions and externally with our clients, suppliers, and community partners.</p></div>
+    <div class="value-card reveal"><span class="value-card__icon">🌍</span><div class="value-card__title">Sustainability</div><p class="value-card__body">Long-term thinking in every decision — from environmentally responsible wood sourcing to building operations that create lasting rural employment.</p></div>
+  </div>
+</div>
+
+<!-- ORG STRUCTURE + PHOTOS -->
+<div class="org-section">
+  <div class="reveal">
+    <span class="section__tag">Organisation</span>
+    <h2 class="section__title">How We're Structured</h2>
+    <div class="divider"></div>
+    <p class="section__body" style="margin-bottom:2rem;">STN Group operates through an effective organisational structure that keeps us compliant, productive, and deeply connected to community involvement.</p>
+    <div class="org-grid">
+      <div class="org-pill">Executive Management</div>
+      <div class="org-pill">Operations</div>
+      <div class="org-pill">Finance &amp; Admin</div>
+      <div class="org-pill">Human Resources</div>
+      <div class="org-pill">Logistics &amp; Distribution</div>
+      <div class="org-pill">Projects &amp; Compliance</div>
+    </div>
+    <div style="margin-top:2.5rem;">
+      <a href="contact.html" class="btn btn--gold">Partner With Us</a>
+    </div>
+  </div>
+  <div class="photo-grid reveal">
+    <!-- images/org-1.jpg — large: team / management photo, 600×700px -->
+    <div class="photo-grid__item">
+      <img src="images/org-1.jpg" alt="STN Team" onerror="this.style.display='none'">
+      <div class="img-placeholder"><strong>images/org-1.jpg</strong>Team / management · 600×700px (large)</div>
+    </div>
+    <!-- images/org-2.jpg — operations / machinery, 600×340px -->
+    <div class="photo-grid__item">
+      <img src="images/org-2.jpg" alt="STN Operations" onerror="this.style.display='none'">
+      <div class="img-placeholder"><strong>images/org-2.jpg</strong>Operations · 600×340px</div>
+    </div>
+    <!-- images/org-3.jpg — community / workers, 600×340px -->
+    <div class="photo-grid__item">
+      <img src="images/org-3.jpg" alt="STN Community" onerror="this.style.display='none'">
+      <div class="img-placeholder"><strong>images/org-3.jpg</strong>Community / workers · 600×340px</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <img src="images/logo-white.png" alt="STN Group" class="footer__logo-img" onerror="this.style.display='none'">
+      <div class="footer__wordmark">STN GROUP</div>
+      <p class="footer__tagline">A multidisciplinary South African organisation rooted in excellence, innovation, and community development.</p>
+    </div>
+    <div>
+      <div class="footer__heading">Pages</div>
+      <ul class="footer__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="charcoal.html">Charcoal</a></li>
+        <li><a href="agriculture.html">Agriculture</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Industries</div>
+      <ul class="footer__links">
+        <li><a href="charcoal.html">Forestry &amp; Charcoal</a></li>
+        <li><a href="agriculture.html">Agriculture</a></li>
+        <li><a href="industries.html">Cartage &amp; Hardware</a></li>
+        <li><a href="industries.html">Water Solutions</a></li>
+        <li><a href="industries.html">Construction</a></li>
+        <li><a href="industries.html">Technology &amp; Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Contact</div>
+      <p class="footer__contact-line"><a href="http://www.stncommgroup.com" target="_blank">www.stncommgroup.com</a></p>
+      <p class="footer__contact-line"><a href="mailto:info@stncommgroup.com">info@stncommgroup.com</a></p>
+      <p class="footer__contact-line"><a href="tel:+27738067458">073 806 7458</a></p>
+      <p class="footer__contact-line"><a href="tel:+27843595454">084 359 5454</a></p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="footer__copy">© 2025 STN Communications CC. All rights reserved.</span>
+    <span class="footer__location">Upper Mjika, Kambi – Tsolo · Eastern Cape · South Africa</span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

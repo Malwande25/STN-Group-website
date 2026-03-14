@@ -3,436 +3,435 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STN Group – Ready to Serve, Partner & Deliver</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>STN Group – Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── HOME-ONLY STYLES ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: calc(var(--nav-h) + 4rem) 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--deep);
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.13;
+    }
+    .hero::before {
+      content:'';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 65% 50%, rgba(30,58,30,0.6) 0%, transparent 60%),
+        radial-gradient(ellipse at 5% 85%,  rgba(201,162,39,0.07) 0%, transparent 50%);
+    }
+    .hero__text { position:relative; z-index:2; }
+    .hero__tag {
+      display: inline-block;
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,162,39,0.4);
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.38rem 1rem;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero__h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.4rem, 5.5vw, 6.2rem);
+      font-weight: 900;
+      line-height: 1.0;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease 0.12s both;
+    }
+    .hero__h1 em { font-style:normal; color:var(--gold); }
+    .hero__lead {
+      font-size: 1.05rem;
+      color: var(--gray-lt);
+      line-height: 1.85;
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s ease 0.25s both;
+    }
+    .hero__btns {
+      display: flex; gap: 1rem;
+      animation: fadeUp 0.8s ease 0.38s both;
+    }
+
+    /* right side card */
+    .hero__card-wrap {
+      position: relative; z-index:2;
+      display: flex; justify-content: center;
+      animation: fadeUp 0.9s ease 0.18s both;
+    }
+    .hero__card {
+      background: rgba(30,58,30,0.35);
+      border: 1px solid rgba(201,162,39,0.22);
+      border-radius: 4px;
+      padding: 2.8rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      max-width: 340px; width: 100%;
+    }
+    .hero__card-img {
+      width: 110px; height: 110px;
+      object-fit: contain;
+      margin: 0 auto 1.4rem;
+    }
+    .hero__card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight:700;
+      color: var(--white); letter-spacing: 0.08em;
+    }
+    .hero__card-sub {
+      font-size: 0.7rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold);
+      margin-top: 0.4rem;
+    }
+    .hero__stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+      margin-top: 2rem; padding-top: 2rem;
+      border-top: 1px solid rgba(201,162,39,0.2);
+    }
+    .stat__num {
+      font-family:'Playfair Display',serif;
+      font-size: 1.9rem; font-weight:700;
+      color: var(--gold); display:block;
+    }
+    .stat__label {
+      font-size: 0.68rem; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--gray);
+    }
+
+    /* ── INDUSTRY PREVIEW STRIP ── */
+    .strip {
+      background: var(--forest);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .strip__item {
+      padding: 2.2rem 1.8rem;
+      border-right: 1px solid var(--border);
+      text-align: center;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: block;
+    }
+    .strip__item:last-child { border-right: none; }
+    .strip__item:hover { background: var(--moss); }
+    .strip__icon { font-size: 1.8rem; margin-bottom: 0.75rem; display:block; }
+    .strip__name {
+      font-size: 0.78rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gray);
+      transition: color 0.3s;
+    }
+    .strip__item:hover .strip__name { color: var(--gold); }
+
+    /* ── HOME INTRO ── */
+    .home-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--deep);
+    }
+    .home-intro__text { padding: 6rem 4rem; }
+    .home-intro__img-wrap {
+      position: relative;
+      min-height: 480px;
+    }
+    .home-intro__img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .home-intro__img-wrap::before {
+      content:'';
+      position: absolute; inset:0; z-index:1;
+      background: linear-gradient(to right, var(--deep) 0%, transparent 35%);
+    }
+
+    /* ── SERVICES GRID ── */
+    .home-services {
+      background: var(--forest);
+      padding: 6rem 4rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      margin-top: 3.5rem;
+      border: 1px solid var(--border);
+    }
+    .service-tile {
+      background: var(--forest);
+      padding: 2.8rem 2.2rem;
+      position: relative;
+      text-decoration: none;
+      display: block;
+      transition: background 0.35s;
+    }
+    .service-tile::after {
+      content:'';
+      position: absolute;
+      bottom:0; left:0;
+      width:100%; height:3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s;
+    }
+    .service-tile:hover { background: var(--moss); }
+    .service-tile:hover::after { transform: scaleX(1); }
+    .service-tile__num {
+      font-family:'Playfair Display',serif;
+      font-size: 3rem; font-weight:900;
+      color: rgba(201,162,39,0.1);
+      line-height: 1; margin-bottom: 1rem;
+      transition: color 0.35s;
+    }
+    .service-tile:hover .service-tile__num { color: rgba(201,162,39,0.22); }
+    .service-tile__name {
+      font-family:'Playfair Display',serif;
+      font-size: 1.25rem; font-weight:700;
+      color: var(--white); margin-bottom: 0.9rem;
+    }
+    .service-tile__desc { font-size: 0.83rem; color: var(--gray); line-height: 1.7; }
+    .service-tile__arrow {
+      display: inline-block; margin-top: 1.2rem;
+      color: var(--gold); font-size: 0.78rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      opacity: 0; transform: translateX(-6px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .service-tile:hover .service-tile__arrow { opacity:1; transform:translateX(0); }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--gold);
+      padding: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .cta-band__title {
+      font-family:'Playfair Display',serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 700; color: var(--deep);
+      max-width: 500px; line-height:1.25;
+    }
+    .btn--dark { background:var(--deep); color:var(--white); }
+    .btn--dark:hover { background: var(--forest); }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns:1fr; padding: calc(var(--nav-h)+3rem) 1.5rem 3rem; }
+      .hero__card-wrap { display:none; }
+      .strip { grid-template-columns: repeat(3,1fr); }
+      .strip__item:nth-child(3) { border-right:none; }
+      .strip__item:nth-child(n+4) { border-top: 1px solid var(--border); }
+      .home-intro { grid-template-columns:1fr; }
+      .home-intro__text { padding: 4rem 1.5rem; }
+      .home-intro__img-wrap { min-height:260px; }
+      .home-services { padding: 4rem 1.5rem; }
+      .services-grid { grid-template-columns:1fr; }
+      .cta-band { flex-direction:column; text-align:center; padding: 3rem 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     NAVIGATION
-══════════════════════════════════════ -->
-<nav>
-  <div class="nav-logo-wrap">
-    <!--
-      NAV LOGO IMAGE
-      Replace src with your logo file.
-      Recommended: PNG/SVG with transparency, ~160×50px
-      Place your file in: images/logo.png
-    -->
-    <img src="images/logo.png" alt="STN Group Logo" class="nav-logo-img" onerror="this.style.display='none'">
-    <div class="nav-logo">STN <span>GROUP</span></div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__brand">
+    <img src="images/logo.png" alt="STN Group" class="nav__logo-img" onerror="this.style.display='none'">
+    <div class="nav__wordmark">STN <span>GROUP</span></div>
   </div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#industries">Industries</a></li>
-    <li><a href="#charcoal">Charcoal</a></li>
-    <li><a href="#agriculture">Agriculture</a></li>
-    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  <ul class="nav__links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="charcoal.html">Charcoal</a></li>
+    <li><a href="agriculture.html">Agriculture</a></li>
+    <li><a href="contact.html" class="nav__cta">Contact</a></li>
   </ul>
+  <div class="nav__burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+<ul class="nav__mobile">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="industries.html">Industries</a></li>
+  <li><a href="charcoal.html">Charcoal</a></li>
+  <li><a href="agriculture.html">Agriculture</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
 
-<!-- ══════════════════════════════════════
-     HERO
-══════════════════════════════════════ -->
-<section class="hero" id="home">
-
-  <!--
-    HERO BACKGROUND IMAGE
-    Fills the entire hero section as a full-width background.
-    Recommended: JPG, 1920×1080px or wider
-    Suggested: aerial Eastern Cape farm / charcoal operation / landscape
-    File path: images/hero-bg.jpg
-  -->
-  <img src="images/hero-bg.jpg" alt="" class="hero-bg-img" onerror="this.style.display='none'">
-
-  <div class="hero-text">
-    <div class="hero-tag">STN Communications CC — Est. 2005</div>
-    <h1>Ready to <em>Serve,</em><br>Partner &amp;<br>Deliver</h1>
-    <p class="hero-sub">A multidisciplinary South African organisation rooted in excellence, innovation, and community development — operating across Forestry, Agriculture, Cartage, and more.</p>
-    <div class="hero-actions">
-      <a href="#industries" class="btn-primary">Our Industries</a>
-      <a href="#contact" class="btn-outline">Get in Touch</a>
+<!-- HERO -->
+<section class="hero">
+  <!-- HERO BG: images/hero-bg.jpg — 1920×1080px landscape photo -->
+  <img src="images/hero-bg.jpg" alt="" class="hero__bg" onerror="this.style.display='none'">
+  <div class="hero__text">
+    <div class="hero__tag">STN Communications CC — Est. 2005</div>
+    <h1 class="hero__h1">Ready to <em>Serve,</em><br>Partner &amp;<br>Deliver</h1>
+    <p class="hero__lead">A multidisciplinary South African organisation rooted in excellence, innovation, and community development across the Eastern Cape and beyond.</p>
+    <div class="hero__btns">
+      <a href="about.html" class="btn btn--gold">Discover STN</a>
+      <a href="contact.html" class="btn btn--outline">Get in Touch</a>
     </div>
   </div>
-
-  <div class="hero-visual">
-    <div class="hero-card">
-      <!--
-        HERO CARD IMAGE / LOGO
-        Displayed inside the floating card on the right side of the hero.
-        Recommended: PNG with transparent background, ~300×300px square
-        File path: images/logo-icon.png
-      -->
-      <img src="images/logo-icon.png" alt="STN Group" class="hero-card-img" onerror="this.style.display='none'">
-      <div class="hero-card-name">STN GROUP</div>
-      <div class="hero-card-sub">Exceptional Value</div>
-      <div class="hero-stats">
-        <div class="stat-item"><span class="stat-num">20+</span><span class="stat-label">Years Active</span></div>
-        <div class="stat-item"><span class="stat-num">8+</span><span class="stat-label">Industries</span></div>
-        <div class="stat-item"><span class="stat-num">EC</span><span class="stat-label">Eastern Cape</span></div>
-        <div class="stat-item"><span class="stat-num">∞</span><span class="stat-label">Community</span></div>
+  <div class="hero__card-wrap">
+    <div class="hero__card">
+      <!-- LOGO ICON: images/logo-icon.png — PNG 300×300px square -->
+      <img src="images/logo-icon.png" alt="STN Group" class="hero__card-img" onerror="this.style.display='none'">
+      <div class="hero__card-name">STN GROUP</div>
+      <div class="hero__card-sub">Exceptional Value</div>
+      <div class="hero__stats">
+        <div><span class="stat__num" data-target="20" data-suffix="+">20+</span><span class="stat__label">Years</span></div>
+        <div><span class="stat__num" data-target="8" data-suffix="+">8+</span><span class="stat__label">Industries</span></div>
+        <div><span class="stat__num">EC</span><span class="stat__label">Eastern Cape</span></div>
+        <div><span class="stat__num">∞</span><span class="stat__label">Community</span></div>
       </div>
     </div>
   </div>
-
-  <div class="scroll-indicator">
-    <span class="scroll-text">Scroll</span>
-    <div class="scroll-line"></div>
+  <div class="scroll-dot">
+    <span class="scroll-dot__label">Scroll</span>
+    <div class="scroll-dot__line"></div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     VISION / MISSION / VALUES
-══════════════════════════════════════ -->
-<section class="vmv" id="about">
-  <div class="vmv-panel reveal">
-    <span class="vmv-label">Our Vision</span>
-    <div class="vmv-title">Leading Multi-Industry Excellence</div>
-    <p class="vmv-text">To be a leading multi-industry service provider, delivering excellence across all our specialised services locally, nationally, and internationally.</p>
-  </div>
-  <div class="vmv-panel reveal">
-    <span class="vmv-label">Our Mission</span>
-    <div class="vmv-title">Innovative &amp; Sustainable Solutions</div>
-    <p class="vmv-text">To provide innovative, sustainable, and client-focused solutions that uplift communities, support economic growth, and exceed customer expectations.</p>
-  </div>
-  <div class="vmv-panel reveal">
-    <span class="vmv-label">Core Values</span>
-    <div class="vmv-title">Driven by Purpose</div>
-    <p class="vmv-text">Community-Centric &bull; Integrity &amp; Trust &bull; Innovation &amp; Creativity &bull; Excellence &bull; Teamwork — the five pillars that guide everything we do.</p>
-  </div>
-</section>
+<!-- STRIP -->
+<div class="strip">
+  <a href="industries.html" class="strip__item"><span class="strip__icon">🌲</span><span class="strip__name">Forestry</span></a>
+  <a href="agriculture.html" class="strip__item"><span class="strip__icon">🌾</span><span class="strip__name">Agriculture</span></a>
+  <a href="industries.html" class="strip__item"><span class="strip__icon">🚚</span><span class="strip__name">Cartage</span></a>
+  <a href="charcoal.html" class="strip__item"><span class="strip__icon">🔥</span><span class="strip__name">Charcoal</span></a>
+  <a href="industries.html" class="strip__item"><span class="strip__icon">🏗️</span><span class="strip__name">Construction</span></a>
+</div>
 
-<!-- ══════════════════════════════════════
-     ABOUT
-══════════════════════════════════════ -->
-<section class="about">
-  <div class="reveal">
-    <span class="section-tag">Who We Are</span>
-    <h2 class="section-title">A Multidisciplinary South African Powerhouse</h2>
+<!-- INTRO -->
+<div class="home-intro">
+  <div class="home-intro__text">
+    <span class="section__tag">Who We Are</span>
+    <h2 class="section__title reveal">A Multidisciplinary South African Powerhouse</h2>
     <div class="divider"></div>
-    <p class="section-body">STN Group is a multidisciplinary South African company established in 2005, positioned to provide innovative, reliable, and quality-driven solutions across various sectors and industries. Based in Upper Mjika, Kambi – Tsolo, Eastern Cape, our integrated approach positions us as a trusted partner for both public and private sector clients.</p>
+    <p class="section__body reveal">Established in 2005 and based in Upper Mjika, Kambi – Tsolo, Eastern Cape, STN Group has grown into a trusted multi-industry organisation delivering innovative, reliable, and quality-driven solutions across Agriculture, Forestry, Construction, Cartage, Water, Technology, and Security.</p>
+    <div style="margin-top:2rem;" class="reveal">
+      <a href="about.html" class="btn btn--gold">Learn More</a>
+    </div>
   </div>
-  <div class="values-grid reveal">
-    <div class="value-card"><span class="value-icon">🌱</span><div class="value-title">Community-Centric</div><div class="value-desc">Driven to exceed customer expectations and uplift the communities we serve.</div></div>
-    <div class="value-card"><span class="value-icon">🤝</span><div class="value-title">Integrity &amp; Trust</div><div class="value-desc">Ethical conduct in all we do — our reputation is built on reliability.</div></div>
-    <div class="value-card"><span class="value-icon">💡</span><div class="value-title">Innovation</div><div class="value-desc">Embracing smart, modern solutions that drive efficiency and growth.</div></div>
-    <div class="value-card"><span class="value-icon">⭐</span><div class="value-title">Excellence</div><div class="value-desc">A commitment to high standards and continuous improvement in every task.</div></div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     PHOTO STRIP (3 images)
-══════════════════════════════════════ -->
-<div class="photo-strip">
-  <!--
-    PHOTO STRIP — 3 side-by-side images between About and Industries
-    photo-strip-1.jpg  →  Eastern Cape aerial / farm overview
-    photo-strip-2.jpg  →  Team / workers on-site
-    photo-strip-3.jpg  →  Equipment / tractor close-up
-    Recommended: JPG, 800×600px, landscape orientation
-    File paths: images/photo-strip-1.jpg  |  -2.jpg  |  -3.jpg
-  -->
-  <div class="photo-strip-item">
-    <img src="images/photo-strip-1.jpg" alt="Eastern Cape Operations">
-    <div class="photo-placeholder-label">Replace → images/photo-strip-1.jpg</div>
-  </div>
-  <div class="photo-strip-item">
-    <img src="images/photo-strip-2.jpg" alt="STN Group Team">
-    <div class="photo-placeholder-label">Replace → images/photo-strip-2.jpg</div>
-  </div>
-  <div class="photo-strip-item">
-    <img src="images/photo-strip-3.jpg" alt="Agricultural Machinery">
-    <div class="photo-placeholder-label">Replace → images/photo-strip-3.jpg</div>
+  <div class="home-intro__img-wrap">
+    <!-- ABOUT IMAGE: images/about-home.jpg — Eastern Cape aerial / farm view, 900×600px -->
+    <img src="images/about-home.jpg" alt="STN Group Eastern Cape" onerror="this.style.display='none'">
+    <div class="img-placeholder"><strong>images/about-home.jpg</strong>Eastern Cape / farm aerial view<br>900×600px recommended</div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     INDUSTRIES
-══════════════════════════════════════ -->
-<section class="industries" id="industries">
-  <div class="industries-header reveal">
+<!-- SERVICES GRID -->
+<div class="home-services">
+  <div style="text-align:center; max-width:560px; margin:0 auto;">
+    <span class="section__tag reveal">Our Work</span>
+    <h2 class="section__title reveal">Industries We Serve</h2>
+  </div>
+  <div class="services-grid">
+    <a href="charcoal.html" class="service-tile reveal">
+      <div class="service-tile__num">01</div>
+      <div class="service-tile__name">Forestry &amp; Charcoal</div>
+      <p class="service-tile__desc">Premium Black Wattle Charcoal manufactured and distributed from the Eastern Cape.</p>
+      <span class="service-tile__arrow">View Division →</span>
+    </a>
+    <a href="agriculture.html" class="service-tile reveal">
+      <div class="service-tile__num">02</div>
+      <div class="service-tile__name">Agriculture &amp; Mechanization</div>
+      <p class="service-tile__desc">Sustainable farming, mechanization services, and crop supply to local retailers.</p>
+      <span class="service-tile__arrow">View Division →</span>
+    </a>
+    <a href="industries.html" class="service-tile reveal">
+      <div class="service-tile__num">03</div>
+      <div class="service-tile__name">Cartage &amp; Hardware</div>
+      <p class="service-tile__desc">Bulk transport of sand, stone, gum poles, and construction materials.</p>
+      <span class="service-tile__arrow">View Industries →</span>
+    </a>
+    <a href="industries.html" class="service-tile reveal">
+      <div class="service-tile__num">04</div>
+      <div class="service-tile__name">Water Solutions</div>
+      <p class="service-tile__desc">Community and agricultural water infrastructure across the Eastern Cape.</p>
+      <span class="service-tile__arrow">View Industries →</span>
+    </a>
+    <a href="industries.html" class="service-tile reveal">
+      <div class="service-tile__num">05</div>
+      <div class="service-tile__name">Construction</div>
+      <p class="service-tile__desc">Rural and urban development with a focus on community infrastructure.</p>
+      <span class="service-tile__arrow">View Industries →</span>
+    </a>
+    <a href="industries.html" class="service-tile reveal">
+      <div class="service-tile__num">06</div>
+      <div class="service-tile__name">Technology &amp; Security</div>
+      <p class="service-tile__desc">Modern security and technology solutions for public and private sector clients.</p>
+      <span class="service-tile__arrow">View Industries →</span>
+    </a>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band__title">Ready to partner with STN Group? Let's build something great together.</div>
+  <a href="contact.html" class="btn btn--dark">Start a Conversation</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
     <div>
-      <span class="section-tag">What We Do</span>
-      <h2 class="section-title">Our Industries</h2>
+      <img src="images/logo-white.png" alt="STN Group" class="footer__logo-img" onerror="this.style.display='none'">
+      <div class="footer__wordmark">STN GROUP</div>
+      <p class="footer__tagline">A multidisciplinary South African organisation rooted in excellence, innovation, and community development.</p>
     </div>
-    <p class="industries-intro">STN Group operates through a multidisciplinary structure designed to meet the diverse needs of private, public, and industrial clients.</p>
-  </div>
-
-  <div class="industries-grid">
-
-    <div class="industry-card reveal">
-      <!--
-        INDUSTRY IMAGE 1 — Forestry & Charcoal
-        Suggested: charcoal bags / burning kiln / black wattle trees
-        File: images/industry-forestry.jpg  |  600×400px
-      -->
-      <div class="industry-img-wrap">
-        <img src="images/industry-forestry.jpg" alt="Forestry and Charcoal" class="industry-img">
-        <div class="photo-placeholder-label">Replace → images/industry-forestry.jpg</div>
-      </div>
-      <div class="industry-body">
-        <div class="industry-num">01</div>
-        <div class="industry-name">Forestry &amp; Charcoal</div>
-        <p class="industry-desc">Manufacturing and supplying high-quality Black Wattle Charcoal sourced in the Eastern Cape. 100% natural, sustainable, and suitable for retail, hospitality, and industrial use.</p>
-        <div class="industry-tags"><span class="tag">Production</span><span class="tag">Packaging</span><span class="tag">Distribution</span></div>
-      </div>
+    <div>
+      <div class="footer__heading">Pages</div>
+      <ul class="footer__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="charcoal.html">Charcoal</a></li>
+        <li><a href="agriculture.html">Agriculture</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
-
-    <div class="industry-card reveal">
-      <!--
-        INDUSTRY IMAGE 2 — Agriculture & Mechanization
-        Suggested: tractor ploughing / maize fields / crop rows
-        File: images/industry-agriculture.jpg  |  600×400px
-      -->
-      <div class="industry-img-wrap">
-        <img src="images/industry-agriculture.jpg" alt="Agriculture and Mechanization" class="industry-img">
-        <div class="photo-placeholder-label">Replace → images/industry-agriculture.jpg</div>
-      </div>
-      <div class="industry-body">
-        <div class="industry-num">02</div>
-        <div class="industry-name">Agriculture &amp; Mechanization</div>
-        <p class="industry-desc">Sustainable agricultural mechanization with modern machinery. We supply maize to local distributors and cabbage crops to SPAR in Mthatha and East London.</p>
-        <div class="industry-tags"><span class="tag">Crops</span><span class="tag">Mechanization</span><span class="tag">Supply</span></div>
-      </div>
+    <div>
+      <div class="footer__heading">Industries</div>
+      <ul class="footer__links">
+        <li><a href="charcoal.html">Forestry &amp; Charcoal</a></li>
+        <li><a href="agriculture.html">Agriculture</a></li>
+        <li><a href="industries.html">Cartage &amp; Hardware</a></li>
+        <li><a href="industries.html">Water Solutions</a></li>
+        <li><a href="industries.html">Construction</a></li>
+        <li><a href="industries.html">Technology &amp; Security</a></li>
+      </ul>
     </div>
-
-    <div class="industry-card reveal">
-      <!--
-        INDUSTRY IMAGE 3 — Cartage & Hardware
-        Suggested: gum tree poles / sand delivery truck / construction materials
-        File: images/industry-cartage.jpg  |  600×400px
-      -->
-      <div class="industry-img-wrap">
-        <img src="images/industry-cartage.jpg" alt="Cartage and Hardware" class="industry-img">
-        <div class="photo-placeholder-label">Replace → images/industry-cartage.jpg</div>
-      </div>
-      <div class="industry-body">
-        <div class="industry-num">03</div>
-        <div class="industry-name">Cartage &amp; Hardware</div>
-        <p class="industry-desc">Reliable, cost-effective transportation of bulk construction and agricultural materials across the Eastern Cape — sand, stone, gum poles, and sabhunga.</p>
-        <div class="industry-tags"><span class="tag">Transport</span><span class="tag">Delivery</span><span class="tag">Logistics</span></div>
-      </div>
-    </div>
-
-    <div class="industry-card reveal">
-      <!--
-        INDUSTRY IMAGE 4 — Water Solutions
-        Suggested: water tanks / irrigation / borehole / community water point
-        File: images/industry-water.jpg  |  600×400px
-      -->
-      <div class="industry-img-wrap">
-        <img src="images/industry-water.jpg" alt="Water Solutions" class="industry-img">
-        <div class="photo-placeholder-label">Replace → images/industry-water.jpg</div>
-      </div>
-      <div class="industry-body">
-        <div class="industry-num">04</div>
-        <div class="industry-name">Water Solutions</div>
-        <p class="industry-desc">Providing water solutions that serve communities and support agricultural operations, ensuring access to this vital resource across our service regions.</p>
-        <div class="industry-tags"><span class="tag">Infrastructure</span><span class="tag">Community</span></div>
-      </div>
-    </div>
-
-    <div class="industry-card reveal">
-      <!--
-        INDUSTRY IMAGE 5 — Construction
-        Suggested: building site / brick laying / community facility
-        File: images/industry-construction.jpg  |  600×400px
-      -->
-      <div class="industry-img-wrap">
-        <img src="images/industry-construction.jpg" alt="Construction" class="industry-img">
-        <div class="photo-placeholder-label">Replace → images/industry-construction.jpg</div>
-      </div>
-      <div class="industry-body">
-        <div class="industry-num">05</div>
-        <div class="industry-name">Construction</div>
-        <p class="industry-desc">Construction services supporting rural and urban development, with a focus on community infrastructure and sustainable building practices throughout the Eastern Cape.</p>
-        <div class="industry-tags"><span class="tag">Building</span><span class="tag">Development</span></div>
-      </div>
-    </div>
-
-    <div class="industry-card reveal">
-      <!--
-        INDUSTRY IMAGE 6 — Technology & Security
-        Suggested: CCTV / server room / modern tech / security equipment
-        File: images/industry-technology.jpg  |  600×400px
-      -->
-      <div class="industry-img-wrap">
-        <img src="images/industry-technology.jpg" alt="Technology and Security" class="industry-img">
-        <div class="photo-placeholder-label">Replace → images/industry-technology.jpg</div>
-      </div>
-      <div class="industry-body">
-        <div class="industry-num">06</div>
-        <div class="industry-name">Technology &amp; Security</div>
-        <p class="industry-desc">Technology and security solutions forming part of STN Group's diversified service portfolio, supporting clients across public and private sectors with modern systems.</p>
-        <div class="industry-tags"><span class="tag">Technology</span><span class="tag">Security</span></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     CHARCOAL FEATURE
-══════════════════════════════════════ -->
-<section class="charcoal-feature" id="charcoal">
-  <div class="charcoal-content reveal">
-    <span class="section-tag">STN Charcoal Division</span>
-    <h2 class="section-title">Black Wattle Charcoal Manufacturing</h2>
-    <div class="divider"></div>
-    <p class="section-body" style="margin-bottom:2rem;">STN Black Wattle Charcoal is a trusted supplier of premium-quality charcoal produced in the Eastern Cape. Our product is natural, sustainable, and suitable for retail &amp; wholesale markets, restaurants &amp; hospitality, and industrial energy applications.</p>
-    <p class="section-body">We handle charcoal production &amp; packaging, bulk supply &amp; distribution, quality testing (Moisture, Ash, Fixed Carbon, Calorific Value), sustainable wood sourcing, and are undergoing SABS certification process support.</p>
-    <div style="margin-top:2.5rem;"><a href="#contact" class="btn-primary">Enquire About Bulk Orders</a></div>
-  </div>
-
-  <div class="charcoal-gallery reveal">
-    <!--
-      CHARCOAL GALLERY — 4 images in a 2×2 grid
-      charcoal-1.jpg  →  Charcoal bags / branded product on shelf
-      charcoal-2.jpg  →  Production / burning kiln / wood pile
-      charcoal-3.jpg  →  Worker holding charcoal bag / staff portrait
-      charcoal-4.jpg  →  Raw wood / Black Wattle sourcing in forest
-      Recommended: JPG, 600×500px each
-      File paths: images/charcoal-1.jpg through charcoal-4.jpg
-    -->
-    <div class="charcoal-img-item">
-      <img src="images/charcoal-1.jpg" alt="STN Charcoal Product">
-      <div class="photo-placeholder-label">Replace → images/charcoal-1.jpg</div>
-    </div>
-    <div class="charcoal-img-item">
-      <img src="images/charcoal-2.jpg" alt="Charcoal Production">
-      <div class="photo-placeholder-label">Replace → images/charcoal-2.jpg</div>
-    </div>
-    <div class="charcoal-img-item">
-      <img src="images/charcoal-3.jpg" alt="STN Worker">
-      <div class="photo-placeholder-label">Replace → images/charcoal-3.jpg</div>
-    </div>
-    <div class="charcoal-img-item">
-      <img src="images/charcoal-4.jpg" alt="Wood Sourcing">
-      <div class="photo-placeholder-label">Replace → images/charcoal-4.jpg</div>
+    <div>
+      <div class="footer__heading">Contact</div>
+      <p class="footer__contact-line"><a href="http://www.stncommgroup.com" target="_blank">www.stncommgroup.com</a></p>
+      <p class="footer__contact-line"><a href="mailto:info@stncommgroup.com">info@stncommgroup.com</a></p>
+      <p class="footer__contact-line"><a href="tel:+27738067458">073 806 7458</a></p>
+      <p class="footer__contact-line"><a href="tel:+27843595454">084 359 5454</a></p>
     </div>
   </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     CHARCOAL ADVANTAGES BAR
-══════════════════════════════════════ -->
-<div class="charcoal-advantages">
-  <div class="adv-bar-item reveal"><div class="adv-bar-icon">🔥</div><div><div class="adv-bar-title">100% Pure Black Wattle</div><div class="adv-bar-desc">Hotter, cleaner, longer burn.</div></div></div>
-  <div class="adv-bar-item reveal"><div class="adv-bar-icon">💧</div><div><div class="adv-bar-title">Low Moisture &amp; Low Ash</div><div class="adv-bar-desc">Minimal residue, consistent quality.</div></div></div>
-  <div class="adv-bar-item reveal"><div class="adv-bar-icon">🌿</div><div><div class="adv-bar-title">Environmentally Responsible</div><div class="adv-bar-desc">Sustainable Eastern Cape sourcing.</div></div></div>
-  <div class="adv-bar-item reveal"><div class="adv-bar-icon">📦</div><div><div class="adv-bar-title">Bulk Supply Available</div><div class="adv-bar-desc">Scalable for any order size.</div></div></div>
-</div>
-
-<!-- ══════════════════════════════════════
-     AGRICULTURAL PRODUCE
-══════════════════════════════════════ -->
-<section class="agri-section" id="agriculture">
-  <div class="agri-text reveal">
-    <span class="section-tag">STN Agricultural Produce</span>
-    <h2 class="section-title">From the Field<br>to Your Table</h2>
-    <div class="divider"></div>
-    <p class="section-body" style="margin-bottom:1.5rem;">We participate actively in local to commercial farming and supply agricultural solutions that empower local farmers &amp; distributors. We supply Maize to local and commercial distributors including Mthiza, Eastern Cape.</p>
-    <p class="section-body" style="margin-bottom:1.5rem;">We supply Cabbage Crops to commercial retailers including SPAR in Mthatha and East London, Eastern Cape.</p>
-    <p class="section-body">Our agricultural mechanization covers ploughing, planting, ripping, and spraying — using modern machinery and skilled operators to improve farm productivity and reduce costs.</p>
+  <div class="footer__bottom">
+    <span class="footer__copy">© 2025 STN Communications CC. All rights reserved.</span>
+    <span class="footer__location">Upper Mjika, Kambi – Tsolo · Eastern Cape · South Africa</span>
   </div>
-
-  <div class="agri-images reveal">
-    <!--
-      AGRICULTURE GALLERY — 4 images (1 large + 3 small)
-      agri-1.jpg  →  Maize / grain bags stacked on pallets  (LARGE – top left)
-      agri-2.jpg  →  Cabbage crop / fresh harvest
-      agri-3.jpg  →  Tractor ploughing a field
-      agri-4.jpg  →  Agricultural worker / farmer portrait
-      Recommended: JPG, 600×500px each
-      File paths: images/agri-1.jpg through agri-4.jpg
-    -->
-    <div class="agri-img-item large">
-      <img src="images/agri-1.jpg" alt="Maize Supply">
-      <div class="photo-placeholder-label">Replace → images/agri-1.jpg  (large)</div>
-    </div>
-    <div class="agri-img-item">
-      <img src="images/agri-2.jpg" alt="Cabbage Crops">
-      <div class="photo-placeholder-label">Replace → images/agri-2.jpg</div>
-    </div>
-    <div class="agri-img-item">
-      <img src="images/agri-3.jpg" alt="Tractor in Field">
-      <div class="photo-placeholder-label">Replace → images/agri-3.jpg</div>
-    </div>
-    <div class="agri-img-item">
-      <img src="images/agri-4.jpg" alt="Agricultural Worker">
-      <div class="photo-placeholder-label">Replace → images/agri-4.jpg</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     COMPETITIVE ADVANTAGES
-══════════════════════════════════════ -->
-<section class="advantages" id="advantages">
-  <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 1rem;">
-    <span class="section-tag">Why Choose STN Group</span>
-    <h2 class="section-title">Our Competitive Advantages</h2>
-  </div>
-  <div class="adv-grid">
-    <div class="adv-card reveal"><span class="adv-number">01</span><div class="adv-icon">🏆</div><div class="adv-title">Operational Experience</div><div class="adv-body">Over 20 years of proven delivery across multiple sectors since 2005.</div></div>
-    <div class="adv-card reveal"><span class="adv-number">02</span><div class="adv-icon">🔧</div><div class="adv-title">Multi-Sector Expertise</div><div class="adv-body">From charcoal manufacturing to agricultural mechanization — we do it all.</div></div>
-    <div class="adv-card reveal"><span class="adv-number">03</span><div class="adv-icon">⚡</div><div class="adv-title">Reliable &amp; Scalable</div><div class="adv-body">Operations built to scale for growing demand without compromising quality.</div></div>
-    <div class="adv-card reveal"><span class="adv-number">04</span><div class="adv-icon">💎</div><div class="adv-title">High Product Quality</div><div class="adv-body">Rigorous quality testing and standards across all divisions and products.</div></div>
-    <div class="adv-card reveal"><span class="adv-number">05</span><div class="adv-icon">🗺️</div><div class="adv-title">Rural &amp; Urban Presence</div><div class="adv-body">Strong footprint across both rural and urban markets in the Eastern Cape.</div></div>
-    <div class="adv-card reveal"><span class="adv-number">06</span><div class="adv-icon">🌍</div><div class="adv-title">Community Partnerships</div><div class="adv-body">Deep community development partnerships driving long-term positive impact.</div></div>
-    <div class="adv-card reveal"><span class="adv-number">07</span><div class="adv-icon">🚚</div><div class="adv-title">Long-Term Employment</div><div class="adv-body">Service delivery creating sustained rural employment and economic opportunity.</div></div>
-    <div class="adv-card reveal"><span class="adv-number">08</span><div class="adv-icon">👷</div><div class="adv-title">Professional Workforce</div><div class="adv-body">A skilled, trained team committed to skills development and professional growth.</div></div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     CONTACT
-══════════════════════════════════════ -->
-<section class="contact" id="contact">
-  <div class="contact-inner reveal">
-    <span class="section-tag">Get In Touch</span>
-    <h2 class="section-title">Partner With STN Group</h2>
-    <p class="section-body" style="margin:0 auto;max-width:550px;">We look forward to partnering with businesses, government departments, investors, and communities to deliver impactful, sustainable solutions.</p>
-    <div class="contact-card">
-      <div class="contact-item">
-        <span class="contact-label">Website</span>
-        <div class="contact-value"><a href="http://www.stncommgroup.com" target="_blank">www.stncommgroup.com</a></div>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label">Email</span>
-        <div class="contact-value"><a href="mailto:info@stncommgroup.com">info@stncommgroup.com</a></div>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label">Contact Numbers</span>
-        <div class="contact-value">
-          <a href="tel:+27738067458">073 806 7458</a><br>
-          <a href="tel:+27843595454">084 359 5454</a>
-        </div>
-      </div>
-    </div>
-    <div class="invest-box">
-      <span class="invest-label">Strategic Financial Support</span>
-      <p class="invest-text">STN is seeking strategic financial support to expand our agricultural and mechanization operations. Funding will be directed toward essential machinery, farm fencing, logistics vehicles, storage infrastructure, and operational tools — directly contributing to economic development, rural empowerment, and long-term agricultural sustainability in the Eastern Cape.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     FOOTER
-══════════════════════════════════════ -->
-<footer>
-  <div class="footer-left">
-    <!--
-      FOOTER LOGO
-      Use a white / light version of your logo for visibility on dark background.
-      File: images/logo-white.png  |  ~200×60px  |  PNG with transparency
-    -->
-    <img src="images/logo-white.png" alt="STN Group" class="footer-logo-img" onerror="this.style.display='none'">
-    <div class="footer-logo">STN GROUP</div>
-  </div>
-  <div class="footer-copy">© 2025 STN Communications CC. All rights reserved.</div>
-  <div class="footer-tagline">Eastern Cape · South Africa</div>
 </footer>
 
 <script src="main.js"></script>

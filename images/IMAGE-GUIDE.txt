@@ -1,63 +1,142 @@
-═══════════════════════════════════════════════════════════
-  STN GROUP WEBSITE — IMAGE GUIDE
-  Drop your images into this folder using the filenames below.
-═══════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════
+  STN GROUP WEBSITE — COMPLETE IMAGE GUIDE
+  Place all images in the  images/  folder.
+  Filenames are case-sensitive — use lowercase exactly as shown.
+═══════════════════════════════════════════════════════════════
 
-LOGOS
-─────────────────────────────────────────────────────────
-  logo.png          Navigation bar logo (colour version)
-                    Recommended: PNG with transparency, ~160×50px
+LOGOS  (used on every page)
+─────────────────────────────────────────────────────────────
+  logo.png          Colour logo — navigation bar
+                    PNG with transparency · ~160×50px
 
-  logo-icon.png     Hero card logo / icon (square)
-                    Recommended: PNG with transparency, ~300×300px
+  logo-icon.png     Square icon / emblem — hero card on homepage
+                    PNG with transparency · ~300×300px
 
-  logo-white.png    Footer logo (white / light version)
-                    Recommended: PNG with transparency, ~200×60px
+  logo-white.png    White version of logo — footer on every page
+                    PNG with transparency · ~200×60px
 
-HERO BACKGROUND
-─────────────────────────────────────────────────────────
-  hero-bg.jpg       Full-width hero background image
-                    Recommended: JPG, 1920×1080px or wider
-                    Suggested: Eastern Cape aerial / farm / landscape
+SHARED — HOME (index.html)
+─────────────────────────────────────────────────────────────
+  hero-bg.jpg       Full-screen hero background
+                    JPG · 1920×1080px · Eastern Cape aerial / landscape
 
-PHOTO STRIP (between About and Industries)
-─────────────────────────────────────────────────────────
-  photo-strip-1.jpg    Eastern Cape aerial / farm overview
-  photo-strip-2.jpg    Team / workers on-site
-  photo-strip-3.jpg    Equipment / tractor close-up
-                       Recommended: JPG, 800×600px, landscape
+  about-home.jpg    Right side of the "Who We Are" split section
+                    JPG · 900×600px · farm overview / aerial
 
-INDUSTRY CARDS
-─────────────────────────────────────────────────────────
-  industry-forestry.jpg       Charcoal bags / burning kiln / wattle trees
-  industry-agriculture.jpg    Tractor / maize fields / crop rows
-  industry-cartage.jpg        Gum poles / sand truck / construction materials
-  industry-water.jpg          Water tanks / irrigation / borehole
-  industry-construction.jpg   Building site / brick laying
-  industry-technology.jpg     CCTV / security / tech equipment
-                              Recommended: JPG, 600×400px, landscape
+ABOUT PAGE (about.html)
+─────────────────────────────────────────────────────────────
+  about-hero.jpg    Page hero background
+                    JPG · 1920×900px · Eastern Cape landscape
 
-CHARCOAL GALLERY (2×2 grid)
-─────────────────────────────────────────────────────────
-  charcoal-1.jpg    Charcoal bags / branded product on shelf
-  charcoal-2.jpg    Production kiln / wood pile burning
-  charcoal-3.jpg    Worker holding charcoal bag / staff portrait
-  charcoal-4.jpg    Raw wood / Black Wattle forest sourcing
-                    Recommended: JPG, 600×500px each
+  about-story.jpg   Right panel of the story section
+                    JPG · 900×700px · farm / operations scene
 
-AGRICULTURE GALLERY (1 large + 3 smaller)
-─────────────────────────────────────────────────────────
-  agri-1.jpg    Maize / grain bags stacked on pallets  ← LARGE image
-  agri-2.jpg    Cabbage crop / fresh harvest
-  agri-3.jpg    Tractor ploughing a field
-  agri-4.jpg    Agricultural worker / farmer portrait
-                Recommended: JPG, 600×500px each
+  org-1.jpg         Photo grid — LARGE left column (full height)
+                    JPG · 600×700px · team / management portrait
 
-═══════════════════════════════════════════════════════════
+  org-2.jpg         Photo grid — top right
+                    JPG · 600×340px · operations / machinery
+
+  org-3.jpg         Photo grid — bottom right
+                    JPG · 600×340px · community / workers
+
+INDUSTRIES PAGE (industries.html)
+─────────────────────────────────────────────────────────────
+  industries-hero.jpg      Page hero background
+                           JPG · 1920×900px · multi-industry scene
+
+  ind-split-1.jpg          Left panel of intro split
+                           JPG · 600×480px · operations photo
+
+  ind-split-2.jpg          Right panel of intro split
+                           JPG · 600×480px · operations photo
+
+  industry-forestry.jpg    Forestry & Charcoal card image
+                           JPG · 600×400px · charcoal bags / kiln
+
+  industry-agriculture.jpg Agriculture card image
+                           JPG · 600×400px · tractor / crops
+
+  industry-cartage.jpg     Cartage card image
+                           JPG · 600×400px · gum poles / truck
+
+  industry-water.jpg       Water Solutions card image
+                           JPG · 600×400px · water tank / borehole
+
+  industry-construction.jpg Construction card image
+                           JPG · 600×400px · building / brickwork
+
+  industry-technology.jpg  Technology & Security card image
+                           JPG · 600×400px · CCTV / security equipment
+
+CHARCOAL PAGE (charcoal.html)
+─────────────────────────────────────────────────────────────
+  charcoal-hero.jpg     Page hero background
+                        JPG · 1920×900px · burning kiln / charcoal bags
+
+  charcoal-1.jpg        Gallery top-left — branded product bags
+                        JPG · 600×380px
+
+  charcoal-2.jpg        Gallery top-right — production kiln
+                        JPG · 600×380px
+
+  charcoal-3.jpg        Gallery bottom-left — worker / staff
+                        JPG · 600×380px
+
+  charcoal-4.jpg        Gallery bottom-right — raw wood / forest
+                        JPG · 600×380px
+
+  charcoal-market.jpg   Market section right image
+                        JPG · 600×500px · product in use / retail display
+
+  charcoal-g-1.jpg      Production gallery image 1
+  charcoal-g-2.jpg      Production gallery image 2
+  charcoal-g-3.jpg      Production gallery image 3
+  charcoal-g-4.jpg      Production gallery image 4
+  charcoal-g-5.jpg      Production gallery image 5
+  charcoal-g-6.jpg      Production gallery image 6
+                        JPG · 600×450px each (all 6 clickable lightbox)
+
+AGRICULTURE PAGE (agriculture.html)
+─────────────────────────────────────────────────────────────
+  agri-hero.jpg       Page hero background
+                      JPG · 1920×900px · tractor / Eastern Cape fields
+
+  agri-story.jpg      Right panel of intro section
+                      JPG · 900×700px · farm overview / tractor
+
+  agri-maize.jpg      Maize produce card image
+                      JPG · 700×360px · maize / grain bags stacked
+
+  agri-cabbage.jpg    Cabbage produce card image
+                      JPG · 700×360px · cabbage crop / harvest
+
+  mech-1.jpg          Mechanization — LARGE left column image
+                      JPG · 600×480px · tractor ploughing
+
+  mech-2.jpg          Mechanization — top right image
+                      JPG · 600×240px · planting / discing
+
+  mech-3.jpg          Mechanization — bottom right image
+                      JPG · 600×240px · worker with machinery
+
+  agri-g-1.jpg  through  agri-g-8.jpg
+                      Photo gallery — 8 square images (clickable lightbox)
+                      JPG · 600×600px each
+
+CONTACT PAGE (contact.html)
+─────────────────────────────────────────────────────────────
+  contact-hero.jpg    Page hero background
+                      JPG · 1920×900px · team / community / handshake
+
+═══════════════════════════════════════════════════════════════
   TIPS:
-  • Keep file sizes under 500KB each for fast loading.
-  • Use JPG for photos, PNG for logos with transparency.
-  • Filenames are case-sensitive — use lowercase exactly as shown.
-  • The website will still work if an image is missing; a
-    placeholder label will show in its place until you add it.
-═══════════════════════════════════════════════════════════
+  • Compress JPGs to under 400KB each for fast loading.
+    Use https://squoosh.app or similar free tools.
+  • Use PNG only for logos (needs transparency).
+  • Keep all filenames lowercase — the website is case-sensitive.
+  • If an image file is missing, a dashed placeholder label
+    will appear in its place — the site still works fine.
+  • Gallery images on Charcoal and Agriculture pages open
+    in a full-screen lightbox when clicked.
+═══════════════════════════════════════════════════════════════
