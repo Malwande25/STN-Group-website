@@ -1,0 +1,63 @@
+═══════════════════════════════════════════════════════════
+  STN GROUP WEBSITE — IMAGE GUIDE
+  Drop your images into this folder using the filenames below.
+═══════════════════════════════════════════════════════════
+
+LOGOS
+─────────────────────────────────────────────────────────
+  logo.png          Navigation bar logo (colour version)
+                    Recommended: PNG with transparency, ~160×50px
+
+  logo-icon.png     Hero card logo / icon (square)
+                    Recommended: PNG with transparency, ~300×300px
+
+  logo-white.png    Footer logo (white / light version)
+                    Recommended: PNG with transparency, ~200×60px
+
+HERO BACKGROUND
+─────────────────────────────────────────────────────────
+  hero-bg.jpg       Full-width hero background image
+                    Recommended: JPG, 1920×1080px or wider
+                    Suggested: Eastern Cape aerial / farm / landscape
+
+PHOTO STRIP (between About and Industries)
+─────────────────────────────────────────────────────────
+  photo-strip-1.jpg    Eastern Cape aerial / farm overview
+  photo-strip-2.jpg    Team / workers on-site
+  photo-strip-3.jpg    Equipment / tractor close-up
+                       Recommended: JPG, 800×600px, landscape
+
+INDUSTRY CARDS
+─────────────────────────────────────────────────────────
+  industry-forestry.jpg       Charcoal bags / burning kiln / wattle trees
+  industry-agriculture.jpg    Tractor / maize fields / crop rows
+  industry-cartage.jpg        Gum poles / sand truck / construction materials
+  industry-water.jpg          Water tanks / irrigation / borehole
+  industry-construction.jpg   Building site / brick laying
+  industry-technology.jpg     CCTV / security / tech equipment
+                              Recommended: JPG, 600×400px, landscape
+
+CHARCOAL GALLERY (2×2 grid)
+─────────────────────────────────────────────────────────
+  charcoal-1.jpg    Charcoal bags / branded product on shelf
+  charcoal-2.jpg    Production kiln / wood pile burning
+  charcoal-3.jpg    Worker holding charcoal bag / staff portrait
+  charcoal-4.jpg    Raw wood / Black Wattle forest sourcing
+                    Recommended: JPG, 600×500px each
+
+AGRICULTURE GALLERY (1 large + 3 smaller)
+─────────────────────────────────────────────────────────
+  agri-1.jpg    Maize / grain bags stacked on pallets  ← LARGE image
+  agri-2.jpg    Cabbage crop / fresh harvest
+  agri-3.jpg    Tractor ploughing a field
+  agri-4.jpg    Agricultural worker / farmer portrait
+                Recommended: JPG, 600×500px each
+
+═══════════════════════════════════════════════════════════
+  TIPS:
+  • Keep file sizes under 500KB each for fast loading.
+  • Use JPG for photos, PNG for logos with transparency.
+  • Filenames are case-sensitive — use lowercase exactly as shown.
+  • The website will still work if an image is missing; a
+    placeholder label will show in its place until you add it.
+═══════════════════════════════════════════════════════════
